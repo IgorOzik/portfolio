@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Igor Ozik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+/* VOICE: descontraído, primeira pessoa, frases curtas, sem pose
+   IDEA: página pessoal com o lema Tibia, Coffee, Music and Dev
+   PICTURE: foto redonda + lema em letra pixelada
+   COLOUR and TYPE: fundo café escuro, texto creme, acento azul claro; Inter + Press Start 2P só no lema
+   LAYOUT: coluna única de 820px, simples e direta */
+:root{color-scheme:light dark;--bg:light-dark(#faf7f3,#13100e);--ink:light-dark(#1d1915,#efe8e1);--mute:light-dark(#6a6158,#a89d92);--line:light-dark(#e7e0d8,#2a2420);--card:light-dark(#ffffff,#1a1613);--acc:light-dark(#0b6bcb,#6cc6ff)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:clip}
+.wrap{max-width:820px;margin:0 auto;padding:0 max(5vw,18px)}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:4px}
+nav{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:22px 0;border-bottom:1px solid var(--line)}
+nav .me{font-weight:700;color:var(--ink)}
+nav .ln{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:15px}
+nav .ln a{color:var(--mute)}nav .ln a:hover{color:var(--ink)}
+section{padding:44px 0 6px}
+h1{font-size:clamp(32px,5vw,44px);line-height:1.08;margin:0 0 6px;letter-spacing:-.5px}
+h2{font-size:22px;margin:0 0 16px}
+h3{font-size:17px;margin:0 0 2px}
+p{margin:0 0 12px}
+.intro{display:grid;grid-template-columns:180px minmax(0,1fr);gap:32px;align-items:start}
+.photo{width:180px;height:180px;border-radius:22px;object-fit:cover;border:3px solid var(--line)}
+#nick{color:var(--acc);display:inline-block;transition:opacity .35s}
+@media(prefers-reduced-motion:reduce){#nick{transition:none}}
+.lead{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.lead .card h3{font-size:19px}
+.motto{font-family:"Press Start 2P",monospace;font-size:11px;line-height:1.9;color:var(--acc);margin:6px 0 16px}
+.bio p{color:var(--mute)}.bio b{color:var(--ink);font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-block;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:8px;font-size:14px;font-weight:500}
+.btn:hover{border-color:var(--acc);text-decoration:none}
+.four{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.four div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.four b{display:block;font-family:"Press Start 2P",monospace;font-size:11px;color:var(--acc);margin-bottom:8px}
+.four span{font-size:14px;color:var(--mute)}
+.cards{display:grid;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.meta{font-size:13px;color:var(--acc);margin:2px 0 10px;font-weight:500}
+.card p,.card ul{color:var(--mute);font-size:15px}
+.card ul{margin:0 0 10px;padding-left:18px}.card li{margin-bottom:5px}
+.card b{color:var(--ink);font-weight:600}
+.facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin:4px 0 12px}
+.facts span{font-size:13px;color:var(--mute)}.facts b{display:block;font-size:20px;color:var(--ink)}
+.foot{font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:14px;padding:9px 0;border-bottom:1px solid var(--line);font-size:15px}
+.tl time{color:var(--mute);font-size:14px;white-space:nowrap}
+.plain{margin:0;padding-left:18px;color:var(--mute)}.plain li{margin-bottom:6px}.plain b{color:var(--ink)}
+footer{margin-top:48px;padding:24px 0 40px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:14px;color:var(--mute)}
+footer .ln{display:flex;gap:16px;flex-wrap:wrap}
+@media(max-width:600px){.intro{grid-template-columns:minmax(0,1fr);gap:18px}.photo{width:150px;height:150px}.tl li{grid-template-columns:minmax(0,1fr);gap:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<a class="me" href="#inicio">Igor Ozik</a>
+<div class="ln"><a href="#projetos">Projetos</a><a href="#lideranca">Liderança</a><a href="#caminho">Caminho</a><a href="https://www.linkedin.com/in/igor-ozik-vasconcelos/">LinkedIn</a><a href="https://github.com/IgorOzik">GitHub</a></div>
+</nav>
+
+<section id="inicio">
+<div class="intro">
+<img class="photo" src="foto.jpg" alt="Foto de Igor Ozik">
+<div class="bio">
+<h1>Oxe, eu sou <span id="nick">Igor</span></h1>
+<div class="motto">Tibia, Coffee, Music and Dev</div>
+<p>Sou de <b>Mamanguape, na Paraíba</b>, estudo <b>Ciência da Computação na UFPB</b> (Campus IV) e sou estagiário de TI na <b>Diretoria de Tecnologia da Prefeitura</b> daqui da cidade.</p>
+<p>Meu negócio é pegar um problema real e transformar em sistema que o povo usa. Já fiz sistema de habitação, de benefícios sociais, de chamados e a carteirinha digital dos universitários. Hoje ando bem metido com <b>IA aplicada</b>: criei um assistente que atende pelo WhatsApp com um modelo rodando na nossa própria máquina.</p>
+<p>Fora a parte técnica, acompanho os estagiários do Programa Primeira Chance, vou nas reuniões com secretários e gestores pela Diretoria de TI, coordeno a <b>Prospec</b> e sou um dos fundadores do <b>Ramos</b>. Nas horas vagas é café, música, Tibia e esporte.</p>
+<div class="btns">
+<a class="btn" href="https://www.linkedin.com/in/igor-ozik-vasconcelos/">LinkedIn</a>
+<a class="btn" href="https://github.com/IgorOzik">GitHub</a>
+<span class="btn">igorozikvasconcelosfilho@gmail.com</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="projetos">
+<h2>Projetos</h2>
+<div class="cards">
+
+<article class="card">
+<h3>Elsilon, o assistente de IA da Diretoria de TI</h3>
+<div class="meta">2026 até hoje · Node.js · Ollama · Qwen3 14B · WhatsApp Cloud API</div>
+<p>O sistema de chamados existia, mas quase ninguém usava. Então levei o atendimento para onde as pessoas já estavam: o WhatsApp. O Elsilon conversa com o servidor, entende o problema e <b>abre, consulta e edita o chamado</b> sozinho.</p>
+<ul>
+<li>O modelo roda no nosso servidor, numa RTX 3060 de 12 GB. Testei versões de 4B, 8B, 14B e uma de 24B quantizada. As menores erravam demais e a de 24B não cabia. Fiquei com o <b>Qwen3 14B</b>.</li>
+<li>Foram mais de 20 versões de prompt até ele responder do jeito certo.</li>
+<li>Por trás: webhook da Meta com verificação de assinatura, sessão por contato e controle para não criar chamado duplicado.</li>
+</ul>
+<div class="facts"><span><b>5 → 15+</b>chamados por semana depois que ele entrou</span></div>
+<div class="foot">Ideia, arquitetura, prompts, integrações e testes feitos por mim, com ajuda de IA no código.</div>
+</article>
+
+<article class="card">
+<h3>SGH, Sistema de Gestão Habitacional</h3>
+<div class="meta">Desde 03/2026 · TypeScript · React · PostgreSQL</div>
+<p>A Secretaria de Habitação fazia tudo à mão em planilhas. Saí de uma reunião com a ideia, levantei os requisitos com a equipe e montamos um sistema que calcula sozinho a prioridade de cada família com base em <b>23 critérios legais</b>.</p>
+<div class="facts">
+<span><b>1.829</b>famílias cadastradas</span>
+<span><b>1.478</b>cadastros em 5 dias</span>
+<span><b>4.845</b>pessoas mapeadas</span>
+<span><b>507</b>pré-cadastros online</span>
+</div>
+<p>O mutirão de abertura teve 25 operadores em campo. O sistema também tem pré-cadastro pelo celular, painel com gráficos e controle de acesso por perfil.</p>
+<div class="foot">Da concepção à manutenção, com desenvolvimento assistido por IA. Código em repositório privado por enquanto.</div>
+</article>
+
+<article class="card">
+<h3>Sistema de Chamados de TI</h3>
+<div class="meta">Desde 05/2025 · TypeScript · React · Supabase</div>
+<p>Antes os pedidos de suporte chegavam no boca a boca e às vezes se perdiam. Fiz sozinho um sistema com protocolo, quadro Kanban, notificação na hora e acompanhamento pelo próprio servidor.</p>
+<ul>
+<li>Segurança cuidada direto no banco, para ninguém ganhar permissão que não deveria.</li>
+<li>Tem uma API própria que o Elsilon usa para abrir os chamados.</li>
+</ul>
+<div class="btns"><a class="btn" href="https://diretoria-de-tecnologia.vercel.app/">Ver o sistema no ar</a></div>
+</article>
+
+<article class="card">
+<h3>Outras coisas que fiz na Prefeitura</h3>
+<ul>
+<li><b>Carteirinha estudantil digital</b> no app Mamanguape Tá On. Implementei e cuido das atualizações. Hoje <b>971 estudantes</b> usam.</li>
+<li><b>SISBEM</b>, o sistema de benefícios sociais. Participei desde o começo nas regras e requisitos e faço manutenção. São <b>601 concessões</b> registradas.</li>
+<li><b>FUNDEF</b>. Testei, achei e corrigi bugs e reforcei a segurança.</li>
+</ul>
+<div class="foot">Os sistemas têm dados de cidadãos, então não publico telas nem código aberto deles.</div>
+</article>
+
+</div>
+</section>
+
+<section id="lideranca">
+<h2>Liderança e comunidade</h2>
+<div class="lead">
+<article class="card"><h3><a href="https://prospescedu.com.br/">Prospec</a></h3><div class="meta">Coordenação</div><p>Faço parte da coordenação. Cuido da parte institucional: contato com prefeituras, reuniões, articulação e organização do time.</p><div class="btns"><a class="btn" href="https://prospescedu.com.br/">Conhecer a Prospec</a></div></article>
+<article class="card"><h3><a href="https://ramos-campus-iv.vercel.app/">Ramos</a></h3><div class="meta">Cofundador</div><p>Iniciativa de estudantes de Computação do Campus IV para criar comunidade, trazer palestras e abrir caminho para mentorias e oportunidades. A ideia surgiu comigo, chamei uns colegas e hoje a gente toca junto, todo mundo no mesmo barco.</p><div class="btns"><a class="btn" href="https://ramos-campus-iv.vercel.app/">Conhecer o Ramos</a></div></article>
+</div>
+</section>
+
+<section id="caminho">
+<h2>Caminho até aqui</h2>
+<ul class="tl">
+<li><time>nov 2026</time><span>Elsilon começa a atender pelo WhatsApp e os chamados triplicam.</span></li>
+<li><time>abr 2026</time><span>Mutirão do SGH: 1.478 famílias cadastradas em 5 dias.</span></li>
+<li><time>mar 2026</time><span>Começo do SGH com a Secretaria de Habitação.</span></li>
+<li><time>ago 2025</time><span>Entro em Ciência da Computação na UFPB.</span></li>
+<li><time>mai 2025</time><span>Começo o Sistema de Chamados.</span></li>
+<li><time>fev 2025</time><span>Contratado como estagiário de TI pela Prefeitura.</span></li>
+<li><time>ago 2024</time><span>Chego na Diretoria de Tecnologia pelo Programa Primeira Chance.</span></li>
+</ul>
+</section>
+
+<section id="extra">
+<h2>Fora do código</h2>
+<div class="four">
+<div><b>Tibia</b><span>O MMORPG do coração. Ensina paciência como nenhum outro.</span></div>
+<div><b>Coffee</b><span>Comecei sem gostar. Hoje é o combustível de todo deploy.</span></div>
+<div><b>Music</b><span>Toquei violino por 10 anos e sigo com fone no ouvido o dia inteiro.</span></div>
+<div><b>Dev</b><span>Quando não estou nos outros três, estou codando.</span></div>
+<div><b>Esporte</b><span>Gosto de praticar. No vôlei já fui campeão regional sub-18.</span></div>
+</div>
+</section>
+
+<footer>
+<span>Igor Ozik · Mamanguape, PB</span>
+<div class="ln"><a href="https://www.linkedin.com/in/igor-ozik-vasconcelos/">LinkedIn</a><a href="https://github.com/IgorOzik">GitHub</a></div>
+</footer>
+</div>
+<script>{const n=["Igor","Ozik","Ozikê","Igu","Lira"],el=document.getElementById('nick');let k=0;if(el&&!matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(()=>{el.style.opacity=0;setTimeout(()=>{k=(k+1)%n.length;el.textContent=n[k];el.style.opacity=1},350)},2200)}}</script>
+</body>
+</html>
